@@ -20,25 +20,48 @@
 
 ## 方案二：GitHub Pages 部署
 
-### 前提条件：
-1. 将代码推送到GitHub仓库
-2. 确保仓库是公开的（或者有GitHub Pro账号）
+### 步骤 1: 创建 GitHub 仓库
+⚠️ **重要：必须先完成此步骤，否则推送会失败！**
 
-### 部署步骤：
+1. 登录 [GitHub](https://github.com)
+2. 点击右上角的 "+" 号，选择 "New repository"
+3. 仓库名建议使用：`personal-portfolio` 或 `portfolio-website`
+4. 设置为 Public（公开仓库，GitHub Pages 免费版需要）
+5. **不要**勾选 "Add a README file"、"Add .gitignore"、"Choose a license"（因为本地已有）
+6. 点击 "Create repository"
+7. 复制仓库的 HTTPS URL（格式：`https://github.com/yourusername/your-repo-name.git`）
+
+**参考示例：** 可以参考这个作品集网站仓库的结构：`https://github.com/liutangmax/portfolio-website`
+
+### 步骤 2: 连接本地仓库到 GitHub
 ```bash
-# 1. 构建项目（如果还没构建）
+# 添加远程仓库（替换为你刚才复制的实际仓库地址）
+git remote add origin https://github.com/yourusername/your-repo-name.git
+
+# 推送代码到 GitHub
+git branch -M main
+git push -u origin main
+```
+
+如果推送失败，请检查：
+- GitHub 仓库是否已创建
+- 仓库地址是否正确
+- 是否有推送权限
+
+### 步骤 3: 部署到 GitHub Pages
+```bash
+# 构建项目
 npm run build
 
-# 2. 部署到GitHub Pages
+# 部署到 GitHub Pages
 npm run deploy
 ```
 
-### 配置GitHub Pages：
-1. 进入GitHub仓库设置
-2. 找到 "Pages" 选项
-3. 选择 "Deploy from a branch"
-4. 选择 "gh-pages" 分支
-5. 点击保存
+### 步骤 4: 配置 GitHub Pages
+1. 在 GitHub 仓库中，进入 Settings > Pages
+2. Source 选择 "Deploy from a branch"
+3. Branch 选择 "gh-pages"
+4. 等待几分钟后访问：`https://yourusername.github.io/your-repo-name`
 
 ## 🌐 访问地址
 
